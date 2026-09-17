@@ -1,0 +1,171 @@
+@use "../abstracts/index" as *;
+
+/* Typography
+============================================================== */
+
+/* Heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-main;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    margin-bottom: 0;
+    letter-spacing: 0;
+    // color: #F9F9F9;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: $font-main;
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+    margin-bottom: 0;
+    letter-spacing: 0;
+    // color: var(--main);
+}
+
+h1,
+.h1 {
+    font-size: clamp(48px, 4.17vw, 60px) !important;
+    line-height: clamp(56px, 4.51vw, 65px) !important;
+    letter-spacing: -0.03em;
+}
+
+h2,
+.h2 {
+    font-size: clamp(32px, 3.47vw, 50px) !important;
+    line-height: clamp(40px, 3.96vw, 57px) !important;
+    letter-spacing: -0.03em !important;
+}
+
+h3,
+.h3 {
+    font-size: clamp(18px, 1.53vw, 22px) !important;
+    line-height: clamp(26px, 2.22vw, 32px) !important;
+    letter-spacing: -0.03em;
+}
+
+h4,
+.h4 {
+    font-size: clamp(18px, 1.39vw, 20px) !important;
+    line-height: clamp(26px, 2.08vw, 30px) !important;
+    letter-spacing: -0.03em;
+}
+
+h5,
+.h5 {
+    font-size: 18px;
+    line-height: clamp(26px, 1.94vw, 28px) !important;
+    letter-spacing: -0.03em;
+}
+
+/* Text Design */
+
+.text-title-1 {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: clamp(26px, 2.08vw, 30px);
+}
+
+.text-title-2 {
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: clamp(30px, 3vw, 38px);
+}
+
+.text-title-3 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: clamp(34px, 4vw, 47px);
+}
+
+.text-title-4 {
+    font-size: clamp(24px, 3vw, 35px);
+    line-height: clamp(32px, 3.4vw, 44px);
+}
+
+.text-body-1 {
+    font-size: clamp(16px, 1.67vw, 20px);
+    line-height: 26px;
+}
+
+.text-body-2 {
+    font-size: clamp(16px, 1.67vw, 18px);
+    line-height: 26px;
+}
+
+.text-caption {
+    font-size: 14px;
+    line-height: 100%;
+}
+
+.ff-2 {
+    font-family: $font-main2 !important;
+}
+
+.fw-4 {
+    font-weight: 400 !important;
+}
+
+.fw-5 {
+    font-weight: 500 !important;
+}
+
+.fw-6 {
+    font-weight: 600 !important;
+}
+
+.fw-7 {
+    font-weight: 700 !important;
+}
+
+.fw-8 {
+    font-weight: 800 !important;
+}
+
+/* Font custom */
+
+/* Font size */
+
+.fs-70 {
+    font-size: clamp(40px, 5.5vw, 70px) !important;
+}
+
+.fs-75 {
+    font-size: clamp(42px, 5.5vw, 75px) !important;
+}
+
+/* Line height */
+
+.lh-35 {
+    line-height: clamp(26px, 2.08vw, 35px) !important;
+}
+
+.lh-50 {
+    line-height: clamp(34px, 4vw, 50px) !important;
+}
+
+.lh-72 {
+    line-height: clamp(56px, 4.51vw, 72px) !important;
+}
+
+.lh-80 {
+    line-height: clamp(56px, 4.7vw, 80px) !important;
+}
+
+.lh-100 {
+    line-height: 100% !important;
+}
+
+
+/* Responsive */
+@include res(xxl, min) {}
+
+@include res(xl, min) {}
+
+@include res(lg, min) {}

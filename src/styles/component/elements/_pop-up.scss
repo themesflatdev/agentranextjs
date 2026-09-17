@@ -1,0 +1,167 @@
+@use "../../abstracts/index" as *;
+
+.modal {
+    .modal-content {
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+    }
+
+    &.modalRight {
+        .modal-dialog {
+            transform: translate(100%, 0) !important;
+            margin: 0;
+            transition: 0.5s all !important;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 100%;
+
+            .modal-content {
+                border: 0;
+                margin: auto;
+                overflow: auto;
+                position: absolute;
+                left: auto;
+                right: 0;
+                bottom: auto;
+                top: 0;
+
+                .icon-close {
+                    i {
+                        font-size: 24px;
+                    }
+
+                }
+            }
+        }
+
+        &.show {
+            .modal-dialog {
+                transform: translate(0, 0) !important;
+            }
+        }
+
+        .modal-filter {
+            overflow: auto;
+        }
+    }
+
+    &.fade {
+        transition: opacity 0.3s linear;
+    }
+}
+
+// `.offcanvas` is `visibility:hidden` by default (bootstrap.min.css) and
+// `visibility` isn't itself animatable, so just removing `.show` on close
+// would hide the panel (and its dark background) the instant React drops the
+// class instead of after the 0.3s slide-out finishes. Delaying the
+// visibility switch by the same 0.3s — reset to 0s the moment `.show` is
+// back — keeps it visible for exactly as long as the transform animates,
+// with no JS timers on the React side.
+.offcanvas {
+    transition: transform 0.3s ease-in-out, visibility 0s linear 0.3s;
+
+    &.show {
+        transition: transform 0.3s ease-in-out, visibility 0s linear 0s;
+    }
+}
+
+// The backdrop's own `.fade` (bootstrap.min.css) only fades over 0.15s,
+// finishing well before the panel's 0.3s slide-out — that gap let the page
+// flash through before the panel had fully left. Match durations and gate
+// clicks on `.show` (not on mount) so the always-mounted backdrop never
+// blocks the header while it's invisible.
+.offcanvas-backdrop {
+    pointer-events: none;
+    transition: opacity 0.3s linear;
+
+    &.show {
+        pointer-events: auto;
+    }
+}
+
+.offcanvas-mobile {
+    background-color: var(--ai-startup-light-dark);
+}
+
+.pop-up-nav-mobile {
+    padding: 15px;
+    overflow: auto;
+
+    .canvas-header {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--color-border-1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo-site {
+            max-width: 120px;
+        }
+    }
+
+    .icon-close {
+        color: var(--white);
+    }
+}
+
+.modal-sidebar {
+    max-width: 685px;
+    padding: 60px 70px 70px;
+    overflow: auto;
+    height: 100%;
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 70px;
+
+        .icon {
+            font-size: 24px;
+            color: var(--digital-marketing-black);
+        }
+    }
+
+    .img {
+        max-width: 115px;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    .sidebar-content {
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .ff-2 {
+            color: var(--paragraph);
+        }
+    }
+}
+
+.overlay-filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    visibility: hidden;
+    opacity: 0;
+    @include transition3();
+
+    &.show {
+        visibility: visible;
+        opacity: 0.3;
+    }
+}

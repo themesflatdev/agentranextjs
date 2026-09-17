@@ -1,0 +1,101 @@
+@use "../../abstracts/index" as *;
+
+.nice-select {
+    border-color: var(--border) !important;
+    position: relative;
+    padding: 15px 23px !important;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    width: 100%;
+
+    &::before {
+        content: '\e911';
+        font-family: $fontIcon;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        @include transition3();
+        color: var(--color-paragraph);
+    }
+
+    &::after {
+        display: none;
+    }
+
+    >span {
+        color: var(--color-paragraph);
+    }
+
+    &.no-border {
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    &.open {
+        z-index: 50;
+
+        &::before {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .list {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1) translateY(0);
+            z-index: 10;
+        }
+    }
+
+    // Structural rules for the option list, ported from the jquery.nice-select
+    // plugin's own nice-select.css (loaded as a separate stylesheet in the
+    // original template, so setup.md's scss/-only copy step never brought it
+    // in). Needed so the React dropdown (ConsultingForm.tsx) has CSS to show/
+    // hide the list via its own "open"/"selected" classes instead of jQuery.
+    .list {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+        box-sizing: border-box;
+        margin-top: 4px;
+        opacity: 0;
+        overflow: hidden auto;
+        padding: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 155px;
+        font-size: 14px;
+        transform-origin: 50% 0;
+        transform: scale(0.75) translateY(-21px);
+        transition: transform 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+        z-index: 9;
+    }
+
+    .option {
+        cursor: pointer;
+        font-weight: 400;
+        line-height: 40px;
+        list-style: none;
+        min-height: 40px;
+        padding-left: 18px;
+        padding-right: 29px;
+        text-align: left;
+        transition: background-color 0.2s;
+
+        &:hover,
+        &.selected {
+            background-color: #f6f6f6;
+        }
+
+        &.selected {
+            font-weight: 600;
+        }
+    }
+}

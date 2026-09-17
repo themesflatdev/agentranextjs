@@ -1,0 +1,179 @@
+@use "../../abstracts/index" as *;
+
+.tes-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--color-bg-1);
+    border: 1px solid var(--color-border-1);
+
+    .image {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 14px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .line {
+        height: 1px;
+        width: 100%;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(92, 87, 231, 0.2) 0%, rgba(92, 87, 231, 0) 100%);
+        margin-bottom: 40px;
+    }
+
+    .item-content {
+        max-width: calc(100% - 310px);
+
+        @include res(xl, min) {
+            padding: 40px 40px 40px 40px;
+        }
+    }
+
+    .user-tes {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .position {
+            color: var(--color-paragraph);
+        }
+    }
+
+    .rating {
+        margin-bottom: 9px;
+    }
+
+    .title {
+        margin-bottom: 37px;
+        color: var(--color-title);
+    }
+
+    .text-tes {
+        margin-bottom: 40px;
+    }
+
+    @include res(sm) {
+        flex-direction: column;
+
+        .image {
+            height: 350px;
+            max-width: 100%;
+            position: relative;
+        }
+
+        .item-content {
+            max-width: 100%;
+            padding: 30px 15px;
+        }
+    }
+
+    &.no-img {
+        max-width: 100%;
+        padding: 50px 40px;
+
+        .item-content {
+            max-width: 100%;
+
+            @include res(xl, min) {
+                padding: 0;
+            }
+        }
+
+        &.style-no-img-2 {
+            padding: 50px;
+        }
+
+        &.style-no-img-3 {
+            background-color: var(--ai-startup-light-dark);
+            border-radius: 20px;
+            padding: 0;
+            .item-content{
+                padding: 50px 60px;
+                @include res(xl){
+                    padding: 30px 15px;
+                }
+            }
+
+            .name,
+            .position,
+            .point,
+            .title {
+                color: var(--white);
+            }
+
+            .text-tes {
+                color: var(--white);
+                margin-bottom: 71px;
+                @include res(lg){
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    &.style-dark {
+        background-color: transparent;
+        background: linear-gradient(180deg, rgba(6, 6, 6, 0.45) 0%, rgba(56, 56, 56, 0.4) 100%);
+        backdrop-filter: blur(30px);
+        position: relative;
+
+        .point {
+            color: var(--white);
+        }
+
+        .line {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .user-tes {
+            a {
+                color: var(--white);
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: inherit;
+            background: linear-gradient(134.16deg, rgba(255, 255, 255, 0.2) 2.68%, rgba(255, 255, 255, 0.1) 30.48%);
+            pointer-events: none;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+    }
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+
+    i {
+        font-size: 24px;
+        background-image: var(--ai-startup-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        &.star-opacity {
+            opacity: 0.3;
+        }
+    }
+
+    .point {
+        color: var(--color-paragraph);
+        padding-left: 5px;
+    }
+}

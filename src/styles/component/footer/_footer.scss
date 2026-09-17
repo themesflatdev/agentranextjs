@@ -1,0 +1,382 @@
+@use "../../abstracts/index" as *;
+
+.footer {
+    position: relative;
+    padding-top: 115px;
+
+    .image-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #131313 0%, rgba(19, 19, 19, 0.85) 100%);
+        }
+    }
+
+    .top-footer {
+        padding-bottom: 59px;
+        position: relative;
+    }
+
+    .line-footer {
+        height: 1px;
+        width: 100%;
+        background-color: var(--color-border-3);
+        position: relative;
+
+        .dot {
+            width: 5px;
+            height: 5px;
+            background-color: var(--white);
+            position: absolute;
+            top: -3px;
+
+            &.dot-1 {
+                left: 15px;
+            }
+
+            &.dot-2 {
+                right: 15px;
+            }
+        }
+    }
+    .middle-footer {
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        @include res(xxl) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+
+            br {
+                display: none;
+            }
+        }
+
+        @include res(lg) {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+    }
+
+    .list-footer-col-block {
+        flex-wrap: wrap;
+
+        @include res(xl, min) {
+            padding-left: 41px;
+        }
+
+        @include res(sm) {
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+
+    .bottom-footer {
+        position: relative;
+        border-top: 1px solid var(--color-border-3);
+        padding-top: 27px;
+        padding-bottom: 27px;
+
+        .copy-right {
+            color: var(--color-text-2);
+
+            a {
+                color: var(--white);
+            }
+        }
+
+        ul {
+            a {
+                color: var(--color-text-2);
+                text-decoration-line: underline;
+                text-decoration-color: transparent;
+                text-underline-offset: 1px;
+
+                &:hover {
+                    color: var(--white);
+                    text-decoration-color: var(--white) !important;
+                }
+            }
+        }
+
+        @include res(md) {
+            .bottom-footer-content {
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    @include res(xxl) {
+        padding-top: 80px;
+    }
+
+    @include res(lg) {
+        padding-top: 60px;
+    }
+
+    &.style-2 {
+        padding-top: 52px;
+        background: var(--black);
+        .image-shape {
+            position: absolute;
+            bottom: 0;
+            &.shape-1 {
+                left: 0;
+            }
+            &.shape-2 {
+                right: 0;
+            }
+        }
+        .line-footer {
+            .dot {
+                background-color: transparent;
+                background: var(--ai-startup-gradient);
+
+                &.dot-1 {
+                    left: -3px;
+                }
+
+                &.dot-2 {
+                    right: -3px;
+                }
+            }
+        }
+        .middle-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            position: relative;
+            .img-shape{
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 720px;
+                width: 100%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                @include res(lg){
+                    display: none;
+                }
+            }
+            @include res(xl, min) {
+                padding-left: 48px;
+                padding-right: 10px;
+            }
+
+            @include res(lg) {
+                flex-wrap: wrap;
+                .footer-content {
+                    max-width: 400px;
+                }
+            }
+            @include res(sm) {
+                .footer-content {
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        .about-footer {
+            width: 100%;
+            @include res(lg, min) {
+                max-width: 351px;
+            }
+        }
+        .big-text-footer {
+            padding-top: 38px;
+            padding-bottom: 43px;
+        }
+        .bottom-footer {
+            padding-top: 48px;
+            padding-bottom: 48px;
+            border-top-color: transparent;
+        }
+    }
+}
+
+.about-footer {
+    .logo-footer {
+        margin-bottom: 20px;
+
+        @include res(sm, min) {
+            margin-bottom: 32px;
+        }
+    }
+
+    .title {
+        color: var(--white);
+        margin-bottom: 20px;
+
+        @include res(sm, min) {
+            margin-bottom: 46px;
+        }
+    }
+}
+
+.footer-content {
+    min-width: 180px;
+
+    .title-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--white);
+
+        i {
+            font-size: 24px;
+            @include transition4();
+        }
+    }
+
+    .content {
+        margin-top: 23px;
+
+        @include res(sm) {
+            margin-top: 0;
+        }
+    }
+
+    li {
+        margin-bottom: 9px;
+
+        a {
+            color: var(--color-text-1);
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -10px;
+                transform: translateY(-50%);
+                width: 5px;
+                height: 5px;
+                background-color: var(--white);
+                opacity: 0;
+                visibility: hidden;
+                @include transition3;
+            }
+
+            &:hover {
+                color: var(--white);
+                padding-left: 15px;
+
+                &::before {
+                    left: 0;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .text {
+        color: var(--color-text-1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    // main.js used jQuery's slideDown/slideUp (duration: 250ms) below 575px.
+    // A grid row sized in `fr` units gives the same open/close animation in
+    // pure CSS — 0fr/1fr transitions smoothly without ever measuring the
+    // content's real height in JS. Above 575px the column is always fully
+    // expanded, matching the original (no accordion there).
+    .tf-collapse-content {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows 0.25s ease;
+        overflow: hidden;
+
+        > * {
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        @include res(sm) {
+            grid-template-rows: 0fr;
+        }
+    }
+
+    &.open {
+        .title-mobile {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+
+        .tf-collapse-content {
+            @include res(sm) {
+                grid-template-rows: 1fr;
+            }
+        }
+
+        .content {
+            @include res(sm) {
+                padding-top: 20px;
+            }
+        }
+    }
+
+    &.footer-newsletter {
+        width: 100%;
+
+        .content {
+            margin-top: 26px;
+
+            @include res(sm) {
+                margin-top: 0;
+            }
+        }
+
+        .desc-newsletter {
+            color: var(--color-text-1);
+            margin-bottom: 30px;
+        }
+
+        @include res(sm, min) {
+            max-width: 315px;
+        }
+    }
+}
+
+.big-text-footer {
+    font-size: clamp(34px, 20vw, 250px);
+    line-height: 100%;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: transparent;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+

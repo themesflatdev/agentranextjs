@@ -1,0 +1,37 @@
+$font-main: var(--font-bai-jamjuree), sans-serif;
+$font-main2: var(--font-dm-sans), sans-serif;
+$fontIcon: "icomoon";
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --ai-agency-orange: #FC7028;
+    --ai-agency-gray: #F2F2F2;
+    --ai-startup-light-dark: #131313;
+    --ai-startup-gradient: linear-gradient(90deg, #A291FE 0%, #5C57E7 50%, #71BBF9 100%);
+    --ai-startup-blue: #5C57E7;
+    
+    --color-title: #111827;
+    --color-paragraph: #71717A;
+    --color-text-1: #FFFFFF80;
+    --color-text-2: #FFFFFFA6;
+    --color-text-3: #FFFFFFB2;
+    --color-text-4: #FFFFFF8C;
+    --color-text-5: #FFFFFFBF;
+
+
+    --color-border-1: #5C57E71A;
+    --color-border-2: #1313131A;
+    --color-border-3: #FFFFFF12;
+    --color-border-4: #0000001A;
+    --color-border-5: #FFFFFF1A;
+    --color-border-6: #1F1E1E;
+    --color-border-7: #00000012;
+    --color-border-8: #1414141A;
+
+    
+    --color-bg-1: #5C57E71A;
+    --color-bg-2: #2D2832;
+    --color-bg-3: #FFFFFF08;
+
+}
