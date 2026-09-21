@@ -41,9 +41,7 @@ export default function NextPrevProject({ currentSlug }: NextPrevProjectProps) {
             </Link>
           </div>
         </div>
-      ) : (
-        <div />
-      )}
+      ) : null}
 
       <Link href="/project-1" className="icon">
         <i className="icon-grid"></i>
@@ -66,9 +64,7 @@ export default function NextPrevProject({ currentSlug }: NextPrevProjectProps) {
             </Link>
           </div>
         </div>
-      ) : (
-        <div />
-      )}
+      ) : null}
     </div>
   );
 }

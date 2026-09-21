@@ -290,6 +290,8 @@ form {
     .nice-select {
         border-radius: 14px;
         padding: 16px 18px !important;
+        background: var(--white);
+        border: 1px solid transparent;
 
         &::before {
             right: 13px;

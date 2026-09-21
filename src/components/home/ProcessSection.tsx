@@ -118,7 +118,7 @@ export default function ProcessSection({ dark = false }: ProcessSectionProps) {
                   <div className="list-image">
                     <div className="image img-1">
                       <Image
-                        src="/assets/images/widget/image-process-1.jpg"
+                        src="/assets/images/widget/img-process-1.jpg"
                         alt={step.title}
                         width={370}
                         height={230}
@@ -126,7 +126,7 @@ export default function ProcessSection({ dark = false }: ProcessSectionProps) {
                     </div>
                     <div className="image img-2">
                       <Image
-                        src="/assets/images/widget/image-process-2.jpg"
+                        src="/assets/images/widget/img-process-2.jpg"
                         alt={step.title}
                         width={230}
                         height={230}

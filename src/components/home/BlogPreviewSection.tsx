@@ -17,9 +17,9 @@ const previewPosts = blogPosts.slice(0, 3);
 // sliced blogPosts (title/slug/date/author still reused, per home-index.md's
 // note not to duplicate the blog-standard data set — only the image differs).
 const PREVIEW_IMAGES = [
-  "/assets/images/blog/p-grid-no-desc-1.jpg",
-  "/assets/images/blog/p-grid-no-desc-2.jpg",
-  "/assets/images/blog/p-grid-no-desc-3.jpg",
+  "/assets/images/blog/grid-no-desc-1.jpg",
+  "/assets/images/blog/grid-no-desc-2.jpg",
+  "/assets/images/blog/grid-no-desc-3.jpg",
 ];
 
 // Same carousel.js breakpoint mapping as ProjectsSection (data-mobile-sm/

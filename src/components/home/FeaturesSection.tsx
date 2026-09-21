@@ -87,7 +87,7 @@ export default function FeaturesSection({ dark = false }: FeaturesSectionProps) 
             </div>
             <div className="image tf-animate-3">
               <Image
-                src="/assets/images/section/img-fea-h1.jpg"
+                src="/assets/images/section/img-fea.jpg"
                 alt="Image"
                 width={417}
                 height={232}

@@ -79,6 +79,8 @@
 
         @include res(xl, min) {
             padding-left: 41px;
+            
+            flex-wrap: nowrap;
         }
 
         @include res(sm) {

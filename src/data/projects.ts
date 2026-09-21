@@ -128,4 +128,57 @@ export const projects: Project[] = [
     image: "/assets/images/project/project-10.jpg",
     tags: ["UX/UI Design", "Ai Design"],
   },
+  // Cloned for pagination demo — project-1.html's own 8-card grid above
+  // isn't enough to show a meaningful pagination (pageSize 8 keeps that
+  // page's existing "2 cols x 4 rows" layout as page 1). These 8 get their
+  // OWN title (and a shuffled image pairing) so page 2 doesn't read as a
+  // literal repeat of page 1 — swap in real projects later.
+  {
+    slug: "ai-content-generator-platform-2-clone",
+    title: "Automated Fraud Detection System",
+    image: "/assets/images/project/project-6.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "predictive-sales-analytics-dashboard-2-clone",
+    title: "AI-Driven Supply Chain Optimization",
+    image: "/assets/images/project/project-9.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "ai-powered-content-generation-clone",
+    title: "Voice-Activated Virtual Concierge",
+    image: "/assets/images/project/project-3.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "ai-chatbot-virtual-assistant-platform-clone",
+    title: "Real-Time Sentiment Analysis Engine",
+    image: "/assets/images/project/project-10.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "smart-customer-support-automation-clone",
+    title: "Intelligent Document Processing Suite",
+    image: "/assets/images/project/project-4.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "predictive-analytics-dashboard-clone",
+    title: "AI-Powered Talent Matching Platform",
+    image: "/assets/images/project/project-7.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "personalized-ai-learning-platform-clone",
+    title: "Predictive Maintenance for Manufacturing",
+    image: "/assets/images/project/project-5.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
+  {
+    slug: "predictive-sales-analytics-dashboard-3-clone",
+    title: "Conversational Banking Assistant",
+    image: "/assets/images/project/project-8.jpg",
+    tags: ["UX/UI Design", "Ai Design"],
+  },
 ];

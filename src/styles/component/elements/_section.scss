@@ -456,6 +456,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .icon-sparkle:first-child{
+            margin-inline-end: 4px;
+        }
+        .icon-sparkle:last-child{
+            margin-inline-start: 4px;
+        }
     }
 
     &.style-center {

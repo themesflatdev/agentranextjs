@@ -82,7 +82,16 @@ export default function ScrollAnimations() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     const splits: SplitText[] = [];
 
-    document.querySelectorAll<HTMLElement>(".title-animation").forEach((el) => {
+    // ":not(.view-counter)" excludes AboutSection2's live counter-item —
+    // SplitText.split() reverts by resetting `element.innerHTML` from a
+    // captured HTML string (see SplitText.js revert()), which rebuilds every
+    // child node from scratch. That destroys the counter's ref-tracked
+    // <span> (useCountUp), detaching it from the DOM the IntersectionObserver
+    // is watching and permanently orphaning React's reference to it — the
+    // number never counts. The original jQuery version doesn't hit this
+    // because it re-queries ".number" live on every scroll check instead of
+    // holding a stable reference.
+    document.querySelectorAll<HTMLElement>(".title-animation:not(.view-counter)").forEach((el) => {
       const split = new SplitText(el, { type: "words, lines" });
       gsap.set(el, { perspective: 200 });
       split.split({ type: "lines" });

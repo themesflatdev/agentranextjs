@@ -30,7 +30,7 @@ const dmSans = DM_Sans({
 // several source pages directly — so this is set once here, not overridden
 // per route.
 export const metadata: Metadata = {
-  title: "Agentra - Ai Agency HTML Template",
+  title: "Agentra - Ai Agency Nextjs Template",
   description: "",
   authors: [{ name: "themesflat.com" }],
   icons: {

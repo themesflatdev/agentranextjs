@@ -26,4 +26,16 @@ export const projectsStyle3: ProjectStyle3[] = [
   { slug: "project-style3-4", image: "/assets/images/project/project-s3-item-4.jpg", title: SHARED_TITLE, tags: SHARED_TAGS },
   { slug: "project-style3-5", image: "/assets/images/project/project-s3-item-5.jpg", title: SHARED_TITLE, tags: SHARED_TAGS },
   { slug: "project-style3-6", image: "/assets/images/project/project-s3-item-6.jpg", title: SHARED_TITLE, tags: SHARED_TAGS },
+  // Cloned for pagination demo — project-2.html's own 6 cards above aren't
+  // enough to show a meaningful pagination (pageSize 6 keeps that page's
+  // existing "two 3-item columns" layout as page 1). Unlike the 6 above,
+  // these get their OWN distinct title (and a shuffled image cycle) so
+  // page 2 doesn't read as a literal repeat of page 1 — swap in real
+  // projects later.
+  { slug: "project-style3-7", image: "/assets/images/project/project-s3-item-4.jpg", title: "Streamlining Enterprise Workflows with AI", tags: SHARED_TAGS },
+  { slug: "project-style3-8", image: "/assets/images/project/project-s3-item-1.jpg", title: "Personalized Marketing at Scale", tags: SHARED_TAGS },
+  { slug: "project-style3-9", image: "/assets/images/project/project-s3-item-5.jpg", title: "AI-Powered Fraud Prevention for Fintech", tags: SHARED_TAGS },
+  { slug: "project-style3-10", image: "/assets/images/project/project-s3-item-2.jpg", title: "Smart Inventory Forecasting Engine", tags: SHARED_TAGS },
+  { slug: "project-style3-11", image: "/assets/images/project/project-s3-item-6.jpg", title: "Natural Language Search for E-Commerce", tags: SHARED_TAGS },
+  { slug: "project-style3-12", image: "/assets/images/project/project-s3-item-3.jpg", title: "Automated Quality Control with Computer Vision", tags: SHARED_TAGS },
 ];

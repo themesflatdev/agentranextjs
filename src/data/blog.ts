@@ -77,6 +77,55 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Machine learning is transforming the way businesses operate by enabling.",
   },
+  // Cloned for pagination demo — /blog-standard only has 6 real posts above,
+  // not enough to show a meaningful 3-page pagination at 4 posts/page. These
+  // 4 reuse post-grid-1..4's image/excerpt but get their OWN title (and a
+  // shuffled order below) so pages 2/3 don't read as a literal repeat of
+  // page 1 — swap in real posts later.
+  {
+    id: "post-grid-3-2",
+    slug: "why-every-startup-needs-an-ai-strategy-in-2026",
+    image: "/assets/images/blog/post-grid-3.jpg",
+    category: "Ai-automations",
+    author: "Admin",
+    date: "20 February 2026",
+    title: "Why Every Startup Needs an AI Strategy in 2026",
+    excerpt:
+      "A clear AI strategy helps startups prioritize the right use cases early, avoiding wasted spend on tools that don't fit the team's actual workflow or customer needs.",
+  },
+  {
+    id: "post-grid-1-2",
+    slug: "5-ways-ai-automation-cuts-operational-costs",
+    image: "/assets/images/blog/post-grid-1.jpg",
+    category: "Ai-automations",
+    author: "Admin",
+    date: "21 February 2026",
+    title: "5 Ways AI Automation Cuts Operational Costs",
+    excerpt:
+      "From ticket triage to invoice processing, targeted automation removes repetitive manual work and lets teams focus on the decisions that actually need a human.",
+  },
+  {
+    id: "post-grid-4-2",
+    slug: "the-future-of-human-ai-collaboration-in-the-workplace",
+    image: "/assets/images/blog/post-grid-4.jpg",
+    category: "Ai-automations",
+    author: "Admin",
+    date: "22 February 2026",
+    title: "The Future of Human-AI Collaboration in the Workplace",
+    excerpt:
+      "The most effective AI rollouts don't replace teams outright — they hand off narrow, well-defined tasks so people can spend more time on judgment calls.",
+  },
+  {
+    id: "post-grid-2-2",
+    slug: "from-data-to-decisions-ai-in-modern-analytics",
+    image: "/assets/images/blog/post-grid-2.jpg",
+    category: "Ai-automations",
+    author: "Admin",
+    date: "23 February 2026",
+    title: "From Data to Decisions: AI in Modern Analytics",
+    excerpt:
+      "Modern analytics pipelines increasingly lean on AI to surface the handful of signals that matter out of a much larger stream of daily business data.",
+  },
 ];
 
 export const blogCategories: string[] = [

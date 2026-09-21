@@ -87,7 +87,7 @@ export default function ServiceFeaturesSection() {
             </div>
             <div className="image">
               <Image
-                src="/assets/images/section/img-fea-h1.jpg"
+                src="/assets/images/section/img-fea.jpg"
                 alt="Image"
                 width={417}
                 height={232}
