@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { projectsStyle3 } from "@/data/projectsStyle3";
 
 interface NextPrevProjectProps {
   currentSlug: string;
@@ -8,19 +9,24 @@ interface NextPrevProjectProps {
 
 // project-details.html hardcodes 2 fixed project names/images for Prev/Next
 // regardless of which project you're viewing — this instead computes real
-// neighbors from projects.ts's own order. Only projects.ts defines a
-// meaningful sequence for this (projectsStyle3.ts's 6 entries are
-// interchangeable demo duplicates with no order that matters), so a slug
-// from projectsStyle3.ts simply has no position here and both buttons hide.
-// First/last items in projects.ts likewise just hide the missing side,
-// rather than wrapping around.
+// neighbors from whichever data source currentSlug actually belongs to.
+// project-2's cards (projectsStyle3.ts) link into project-details too, so
+// both arrays need to be searched — using only projects.ts left every
+// project-2 → project-details visit with currentIndex -1, hiding Prev/Next
+// entirely and leaving just the grid icon. First/last items in either array
+// just hide the missing side, rather than wrapping around or crossing over
+// into the other array.
 export default function NextPrevProject({ currentSlug }: NextPrevProjectProps) {
-  const currentIndex = projects.findIndex((project) => project.slug === currentSlug);
-  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
+  const list: { slug: string; image: string; title: string }[] = projects.some(
+    (project) => project.slug === currentSlug
+  )
+    ? projects
+    : projectsStyle3;
+
+  const currentIndex = list.findIndex((project) => project.slug === currentSlug);
+  const prevProject = currentIndex > 0 ? list[currentIndex - 1] : undefined;
   const nextProject =
-    currentIndex !== -1 && currentIndex < projects.length - 1
-      ? projects[currentIndex + 1]
-      : undefined;
+    currentIndex !== -1 && currentIndex < list.length - 1 ? list[currentIndex + 1] : undefined;
 
   return (
     <div className="next-prev-details d-flex align-items-center justify-content-between g-30">
