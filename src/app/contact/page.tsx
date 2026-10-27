@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ConsultingForm from "@/components/common/ConsultingForm";
 import Marquee from "@/components/layout/Marquee";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with Agentra to discuss your AI automation, machine learning, or digital transformation project requirements.",
+};
 
 export default function ContactPage() {
   return (

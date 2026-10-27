@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
 import ServiceFeaturesSection from "@/components/service/ServiceFeaturesSection";
 import Marquee from "@/components/layout/Marquee";
 import ServicesGridSection from "@/components/service/ServicesGridSection";
 import ProcessStaticSection from "@/components/home2/ProcessStaticSection";
 import ServiceTestimonialsSection from "@/components/service/ServiceTestimonialsSection";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Discover Agentra's AI services, including process automation, SaaS platform development, system integration, and machine learning solutions.",
+};
 
 export default function ServicePage() {
   return (

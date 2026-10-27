@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroArea2 from "@/components/home2/HeroArea2";
 import FeaturesSwiperSection from "@/components/home2/FeaturesSwiperSection";
 import AboutSection2 from "@/components/home2/AboutSection2";
@@ -10,6 +11,12 @@ import FAQSection2 from "@/components/home2/FAQSection2";
 import BlogSwiperSection2 from "@/components/home2/BlogSwiperSection2";
 import CTASection2 from "@/components/home2/CTASection2";
 import Marquee from "@/components/layout/Marquee";
+
+export const metadata: Metadata = {
+  title: "AI Startup Agency (Dark Mode)",
+  description:
+    "Dark-mode version of Agentra's AI startup homepage, showcasing automation, SaaS, and machine learning services for technology companies.",
+};
 
 export default function AiStartupDarkPage() {
   return (

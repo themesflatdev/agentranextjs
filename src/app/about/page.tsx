@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
 import AboutIntroSection from "@/components/about/AboutIntroSection";
 import Marquee from "@/components/layout/Marquee";
@@ -6,6 +7,12 @@ import TeamPreviewSection from "@/components/about/TeamPreviewSection";
 import AwardsAccordion from "@/components/about/AwardsAccordion";
 import ClientLogosMarquee from "@/components/home2/ClientLogosMarquee";
 import { awards } from "@/data/awards";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Agentra's mission, team, and award-winning approach to delivering AI automation and digital solutions for modern businesses.",
+};
 
 export default function AboutPage() {
   return (

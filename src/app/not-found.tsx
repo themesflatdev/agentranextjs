@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  description: "The page you're looking for isn't here. Return to the Agentra homepage to continue exploring.",
+};
 
 // Next.js renders this automatically for unmatched routes AND for any
 // notFound() call from a dynamic route (service-details/[slug],

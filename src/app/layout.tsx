@@ -25,17 +25,30 @@ const dmSans = DM_Sans({
   style: ["normal", "italic"],
 });
 
-// Every page in agentrahtml shares this exact same <title>/description/author
-// — a demo-template quirk (no per-page unique titles), confirmed by diffing
-// several source pages directly — so this is set once here, not overridden
-// per route.
+const SITE_TITLE = "Agentra - AI Agency Next.js Template";
+const SITE_DESCRIPTION =
+  "Agentra is an AI agency and AI startup Next.js template with modern sections for services, portfolio, team, pricing, blog, and contact pages.";
+
 export const metadata: Metadata = {
-  title: "Agentra - Ai Agency Nextjs Template",
-  description: "",
+  title: {
+    default: SITE_TITLE,
+    template: "%s | Agentra",
+  },
+  description: SITE_DESCRIPTION,
   authors: [{ name: "themesflat.com" }],
   icons: {
     icon: "/assets/images/favicon.svg",
     apple: "/assets/images/favicon.svg",
+  },
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 };
 

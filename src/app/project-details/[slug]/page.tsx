@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ProjectDetailPageBody from "@/components/project/ProjectDetailPageBody";
 import { projects } from "@/data/projects";
@@ -5,6 +6,24 @@ import { projectsStyle3 } from "@/data/projectsStyle3";
 
 interface ProjectDetailsPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectDetailsPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project =
+    projects.find((item) => item.slug === slug) ??
+    projectsStyle3.find((item) => item.slug === slug);
+
+  if (!project) {
+    return { title: "Project Not Found" };
+  }
+
+  return {
+    title: project.title,
+    description: `${project.title} — a project by Agentra built with ${project.tags.join(", ")}.`,
+  };
 }
 
 // Two independent data sources can both link here (project-1/Home's grid via

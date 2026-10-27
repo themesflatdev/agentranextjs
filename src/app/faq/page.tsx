@@ -1,36 +1,29 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
-import FAQSidebar from "@/components/faq/FAQSidebar";
+import FAQSidebarToggle from "@/components/faq/FAQSidebarToggle";
 import FAQAccordion from "@/components/common/FAQAccordion";
 import { faqPage1 } from "@/data/faqPage1";
 import { faqPage2 } from "@/data/faqPage2";
+
+export const metadata: Metadata = {
+  title: "FAQs",
+  description:
+    "Find answers to common questions about Agentra's AI solutions, digital services, project process, pricing, and support.",
+};
 
 // faq.html has no "main-content" wrapper div (unlike most other pages) —
 // the page-title section and the single section-faq sit directly under
 // <main id="wrapper">, confirmed by diffing the source directly.
 export default function FaqPage() {
-  const [filterOpen, setFilterOpen] = useState(false);
-
   return (
     <>
-      <button
-        id="filterShop"
-        type="button"
-        className="fillter-btn style-fixed d-xl-none"
-        onClick={() => setFilterOpen(true)}
-      >
-        <i className="icon-sidebar"></i>
-      </button>
-
       <PageTitleBanner title="FAQs" breadcrumbLabel="FAQs" bgImage="/assets/images/page-title/page-title.jpg" />
 
       <section className="section-faq p-faq flat-spacing-1">
         <div className="container">
           <div className="row">
             <div className="col-xl-4">
-              <FAQSidebar isOpen={filterOpen} onClose={() => setFilterOpen(false)} />
+              <FAQSidebarToggle />
             </div>
 
             <div className="col-xl-8">
@@ -48,11 +41,6 @@ export default function FaqPage() {
           </div>
         </div>
       </section>
-
-      <div
-        className={`overlay-filter${filterOpen ? " show" : ""}`}
-        onClick={() => setFilterOpen(false)}
-      />
     </>
   );
 }

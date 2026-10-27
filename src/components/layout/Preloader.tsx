@@ -19,19 +19,27 @@ const HOME_ROUTES = ["/", "/ai-startup", "/index-dark", "/ai-startup-dark"];
 
 export default function Preloader() {
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const [mounted, setMounted] = useState(true);
   const [fading, setFading] = useState(false);
   const isHomeRoute = HOME_ROUTES.includes(pathname);
 
-  useEffect(() => {
-    if (!isHomeRoute) return;
-
+  // Reset the preloader synchronously during render when the route changes
+  // (React's "adjusting state when a prop changes" pattern) instead of in an
+  // effect, since this needs to happen before paint — an effect would flash
+  // the old faded-out state for a frame first.
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setMounted(true);
     setFading(false);
+  }
+
+  useEffect(() => {
+    if (!isHomeRoute || !mounted) return;
 
     const holdTimer = setTimeout(() => setFading(true), HOLD_MS);
     return () => clearTimeout(holdTimer);
-  }, [pathname, isHomeRoute]);
+  }, [pathname, isHomeRoute, mounted]);
 
   if (!isHomeRoute || !mounted) return null;
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceDetailPageBody from "@/components/service/ServiceDetailPageBody";
 import { servicesHome2 } from "@/data/servicesHome2";
@@ -8,6 +9,22 @@ interface ServiceDetailsPageProps {
 
 export function generateStaticParams() {
   return servicesHome2.map((service) => ({ slug: service.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: ServiceDetailsPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = servicesHome2.find((item) => item.slug === slug);
+
+  if (!service) {
+    return { title: "Service Not Found" };
+  }
+
+  return {
+    title: service.name,
+    description: service.desc,
+  };
 }
 
 // service-details.html has only ONE body-content demo shared by all 6

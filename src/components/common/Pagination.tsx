@@ -30,7 +30,6 @@ export default function Pagination({
       <ul className={`d-flex align-items-center${centered ? " justify-content-center" : ""} g-10`}>
         <li
           className={`wow fadeInUp text-body-1 fw-6${isFirst ? " disabled" : ""}`}
-          aria-disabled={isFirst}
           onClick={() => !isFirst && onPageChange(currentPage - 1)}
         >
           <i className="icon-arrow-left-2"></i>
@@ -50,7 +49,6 @@ export default function Pagination({
         <li
           className={`wow fadeInUp text-body-1 fw-6${isLast ? " disabled" : ""}`}
           data-wow-delay={`.${pages.length + 1}s`}
-          aria-disabled={isLast}
           onClick={() => !isLast && onPageChange(currentPage + 1)}
         >
           <i className="icon-arrow-right-2"></i>

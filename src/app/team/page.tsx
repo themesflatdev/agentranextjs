@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
 import TeamGridSection from "@/components/team/TeamGridSection";
 import Marquee from "@/components/layout/Marquee";
 import TeamTestimonialsSection from "@/components/team/TeamTestimonialsSection";
 import FAQAccordion from "@/components/common/FAQAccordion";
 import { faqTeam } from "@/data/faqTeam";
+
+export const metadata: Metadata = {
+  title: "Team Member",
+  description:
+    "Meet the Agentra team of AI specialists, engineers, and strategists behind our automation and digital transformation projects.",
+};
 
 export default function TeamPage() {
   return (

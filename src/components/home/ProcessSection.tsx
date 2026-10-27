@@ -31,9 +31,15 @@ export default function ProcessSection({ dark = false }: ProcessSectionProps) {
     }
   };
 
-  // Mirrors the original's scroll-to-active-item-on-load.
+  // Mirrors the original's scroll-to-active-item-on-load. Scrolls the DOM
+  // directly instead of going through goToSlide/setActiveIndex — activeIndex
+  // is already 1 on mount, so there's no state to update here.
   useEffect(() => {
-    goToSlide(activeIndex, "auto");
+    const track = trackRef.current;
+    const item = itemRefs.current[activeIndex];
+    if (track && item) {
+      track.scrollTo({ left: item.offsetLeft, behavior: "auto" });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

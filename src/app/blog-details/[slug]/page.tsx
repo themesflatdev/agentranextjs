@@ -1,13 +1,11 @@
-"use client";
-
-import { use, useState } from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
 import BlogContentRenderer from "@/components/blog/BlogContentRenderer";
 import TagShareBlock from "@/components/blog/TagShareBlock";
 import CommentList from "@/components/blog/CommentList";
 import CommentForm from "@/components/blog/CommentForm";
-import BlogSidebar from "@/components/blog/BlogSidebar";
+import BlogSidebarToggle from "@/components/blog/BlogSidebarToggle";
 import {
   getBlogDetailBySlug,
   blogComments,
@@ -20,9 +18,24 @@ interface BlogDetailsPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
-  const { slug } = use(params);
-  const [filterOpen, setFilterOpen] = useState(false);
+export async function generateMetadata({
+  params,
+}: BlogDetailsPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogDetailBySlug(slug);
+
+  if (!post) {
+    return { title: "Blog Post Not Found" };
+  }
+
+  return {
+    title: post.title.replace(/\n/g, " "),
+    description: post.content.find((block) => block.type === "paragraph")?.text,
+  };
+}
+
+export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) {
+  const { slug } = await params;
   const post = getBlogDetailBySlug(slug);
 
   if (!post) {
@@ -31,15 +44,6 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
 
   return (
     <>
-      <button
-        id="filterShop"
-        type="button"
-        className="fillter-btn style-fixed d-xl-none"
-        onClick={() => setFilterOpen(true)}
-      >
-        <i className="icon-sidebar"></i>
-      </button>
-
       <PageTitleBanner
         title={post.title}
         breadcrumbLabel="Blog Details"
@@ -63,22 +67,15 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
             </div>
 
             <div className="col-xl-4">
-              <BlogSidebar
+              <BlogSidebarToggle
                 categories={blogCategories}
                 recentPosts={recentPosts}
                 tags={blogTags}
-                isOpen={filterOpen}
-                onClose={() => setFilterOpen(false)}
               />
             </div>
           </div>
         </div>
       </section>
-
-      <div
-        className={`overlay-filter${filterOpen ? " show" : ""}`}
-        onClick={() => setFilterOpen(false)}
-      />
     </>
   );
 }

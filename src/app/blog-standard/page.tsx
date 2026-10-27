@@ -1,33 +1,20 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
-import BlogPostCard from "@/components/blog/BlogPostCard";
-import BlogSidebar from "@/components/blog/BlogSidebar";
-import Pagination from "@/components/common/Pagination";
-import { usePagination } from "@/hooks/usePagination";
+import BlogPostList from "@/components/blog/BlogPostList";
+import BlogSidebarToggle from "@/components/blog/BlogSidebarToggle";
 import { blogPosts, blogCategories, recentPosts, blogTags } from "@/data/blog";
 
 const BLOG_PAGE_SIZE = 4;
 
-export default function BlogStandardPage() {
-  const [filterOpen, setFilterOpen] = useState(false);
-  const { currentPage, totalPages, pagedItems, goToPage, topRef } = usePagination(
-    blogPosts,
-    BLOG_PAGE_SIZE
-  );
+export const metadata: Metadata = {
+  title: "Blog Standard",
+  description:
+    "Explore Agentra's blog for insights on AI automation, machine learning, and digital transformation strategies for modern businesses.",
+};
 
+export default function BlogStandardPage() {
   return (
     <>
-      <button
-        id="filterShop"
-        type="button"
-        className="fillter-btn style-fixed d-xl-none"
-        onClick={() => setFilterOpen(true)}
-      >
-        <i className="icon-sidebar"></i>
-      </button>
-
       <PageTitleBanner
         title="Blog Standard"
         breadcrumbLabel="Blog Standard"
@@ -37,34 +24,18 @@ export default function BlogStandardPage() {
       <section className="section-blog-standard flat-spacing-1">
         <div className="container">
           <div className="row">
-            <div className="col-xl-8" ref={topRef}>
-              {pagedItems.map((post) => (
-                <BlogPostCard post={post} key={post.id} />
-              ))}
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={goToPage}
-              />
-            </div>
+            <BlogPostList posts={blogPosts} pageSize={BLOG_PAGE_SIZE} />
 
             <div className="col-xl-4">
-              <BlogSidebar
+              <BlogSidebarToggle
                 categories={blogCategories}
                 recentPosts={recentPosts}
                 tags={blogTags}
-                isOpen={filterOpen}
-                onClose={() => setFilterOpen(false)}
               />
             </div>
           </div>
         </div>
       </section>
-
-      <div
-        className={`overlay-filter${filterOpen ? " show" : ""}`}
-        onClick={() => setFilterOpen(false)}
-      />
     </>
   );
 }

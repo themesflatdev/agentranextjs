@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import PageTitleBanner from "@/components/sections/PageTitleBanner";
 import PricingCardsSection from "@/components/pricing/PricingCardsSection";
 import PricingListSection from "@/components/pricing/PricingListSection";
 import FAQAccordion from "@/components/common/FAQAccordion";
 import { faqPricing } from "@/data/faqPricing";
+
+export const metadata: Metadata = {
+  title: "Pricing",
+  description:
+    "Compare Agentra's AI agency pricing plans and packages to find the right fit for your automation, development, and support needs.",
+};
 
 export default function PricingPage() {
   return (

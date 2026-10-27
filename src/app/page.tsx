@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroArea from "@/components/home/HeroArea";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import AboutSection from "@/components/home/AboutSection";
@@ -10,6 +11,12 @@ import PricingPreviewSection from "@/components/home/PricingPreviewSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import ContactCTASection from "@/components/home/ContactCTASection";
 import BlogPreviewSection from "@/components/home/BlogPreviewSection";
+
+export const metadata: Metadata = {
+  title: "AI Agency Next.js Template",
+  description:
+    "Agentra helps businesses adopt AI automation, machine learning, and data-driven solutions with scalable, future-ready digital services.",
+};
 
 export default function Home() {
   return (
